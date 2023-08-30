@@ -77,7 +77,12 @@ func (consumer *Consumer) Listen(topics []string) error {
 	go func() {
 		for d := range messages {
 			var payload Payload
-			_ = json.Unmarshal(d.Body, &payload)
+			if err := json.Unmarshal(d.Body, &payload); err != nil {
+                // Handle unmarshal error
+                fmt.Println("Error unmarshaling payload:", err)
+                continue
+            }
+			//_ = json.Unmarshal(d.Body, &payload)
 
 			go handlePayload(payload)
 		}
