@@ -13,10 +13,10 @@ message LogRequest {
     Log logEntry = 1;
 }
 
-message LogRequest {
+message LogResponse {
     string result = 1;
 }
 
 service LogService {
-    rpc WriteLog(logRequest) returns (LogResponse);
+    rpc WriteLog(LogRequest) returns (LogResponse);
 }
