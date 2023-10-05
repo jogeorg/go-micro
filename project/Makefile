@@ -4,7 +4,7 @@ AUTH_BINARY=authApp
 LOGGER_BINARY=loggerServiceApp
 LISTENER_BINARY=listenerApp
 MAIL_BINARY=MailServiceApp
-FRONT_BINARY=frontEndApp
+FRONT_BINARY=frontApp
 
 ## up: starts all containers in the background without forcing build
 up:

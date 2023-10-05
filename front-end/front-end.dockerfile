@@ -2,6 +2,6 @@ FROM alpine:latest
 
 RUN mkdir /app
 
-COPY frontEndApp /app
+COPY frontApp /app
 
-CMD [ "/app/frontEndApp"]
+CMD [ "/app/frontApp"]
