@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
         - name: front-end
-          image: "jmgdemo.azurecr.us/go-micro/front-end:1.0.1"
+          image: "jmgdemo.azurecr.us/go-micro/front-end:1.0.3"
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           env:
             - name: BROKER_URL
-              value: "johnmichaelgeorge.com"
+              value: "https://johnmichaelgeorge.com/broker"
           ports:
             - containerPort: 8081
 ---
