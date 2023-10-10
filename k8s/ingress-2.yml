@@ -2,25 +2,32 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: my-go-ingress
-  namespace: go-micro
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - go-micro.johnmichaelgeorge.com
+        - broker.johnmichaelgeorge.com
+      secretName: tls-secret-2
   rules:
-    - http:
+    - host: go-micro.johnmichaelgeorge.com
+      http:
         paths:
-          - path: /go-micro
-            pathType: Exact
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: front-end
                 port:
                   number: 8081
-          - path: /broker
-            pathType: Exact
+    - host: broker.johnmichaelgeorge.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: broker-service
@@ -40,11 +47,11 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - my-website-ingress.johnmichaelgeorge.com
+        - www.johnmichaelgeorge.com
       secretName: tls-secret
   rules:
-    - host: my-website-ingress.johnmichaelgeorge.com
-      http:
+    - host: www.johnmichaelgeorge.com
+    - http:
         paths:
           - path: /
             pathType: Prefix

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mail-service
-  namespace: go-micro
+
 spec:
   replicas: 1
   selector:
@@ -44,7 +44,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mail-service
-  namespace: go-micro
+
 spec:
   selector:
     app: mail-service
