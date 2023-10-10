@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
+  namespace: go-micro
 spec:
   replicas: 1
   selector:
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
         - name: front-end
-          image: "jmgdemo.azurecr.us/go-micro/front-end:1.0.3"
+          image: "jmgdemo.azurecr.us/go-micro/front-end:1.0.4"
           resources:
             limits:
               memory: "128Mi"
@@ -29,6 +30,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: front-end
+  namespace: go-micro
 spec:
   selector:
     app: front-end

@@ -52,17 +52,17 @@ spec:
                 name: website
                 port:
                   number: 80
-          - path: /go-micro
-            pathType: Prefix
-            backend:
-              service:
-                name: front-end
-                port:
-                  number: 8081
-          - path: /broker
-            pathType: Prefix
-            backend:
-              service:
-                name: broker-service
-                port:
-                  number: 8080
+          # - path: /go-micro
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: front-end
+          #       port:
+          #         number: 8081
+          # - path: /broker
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: broker-service
+          #       port:
+          #         number: 8080
