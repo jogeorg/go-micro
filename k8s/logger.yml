@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: logger-service
-          image: "jmgdemo.azurecr.us/go-micro/logger-service:1.0.1"
+          image: "jmgdemo.azurecr.us/go-micro/logger-service:1.0.2"
           resources:
             limits:
               memory: "128Mi"
