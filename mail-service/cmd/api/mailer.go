@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"crypto/tls"
 	"html/template"
 	"log"
 	"time"
@@ -67,6 +68,7 @@ func (m *Mail) SendSMTPMessage(msg Message) error {
 	server.KeepAlive = false
 	server.ConnectTimeout = 10 * time.Second
 	server.SendTimeout = 10 * time.Second
+	server.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	smtpClient, err := server.Connect()
 	if err != nil {
